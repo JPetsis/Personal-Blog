@@ -12,8 +12,8 @@ module.exports = {
   },
   save(post) {
     return db.one(
-      `INSERT INTO posts (user_id, title, body, created_at) 
-      VALUES ($/user_id/, $/title/, $/body/, $/created_at/)
+      `INSERT INTO posts (id_users, title, body, created_at) 
+      VALUES ($/id_users/, $/title/, $/body/, $/created_at/)
       RETURNING *`,
       post
     )
@@ -22,7 +22,7 @@ module.exports = {
     return db.one(
       `UPDATE posts
       SET
-      user_id = $/user_id/,
+      id_users = $/id_users/,
       title = $/title/,
       body = $/body/,
       updated_at = $/updated_at/
