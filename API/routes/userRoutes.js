@@ -1,0 +1,15 @@
+const express = require("express")
+const usersController = require("../controllers/usersController")
+const usersRouter = express.Router()
+
+usersRouter
+  .route("/")
+  .get(usersController.index)
+  .post(usersController.create)
+  .put(usersController.update)
+
+usersRouter.route("/user/:id").get(usersController.getOne).delete(usersController.delete)
+
+usersRouter.route("/user/:username").get(usersController.getByUsername)
+
+module.exports = usersRouter
