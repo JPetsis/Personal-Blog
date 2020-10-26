@@ -5,7 +5,7 @@ const postTagsRouter = express.Router()
 postTagsRouter
   .route("/")
   .get(postTagsController.index)
-  .post(postTagsController.create)
+  .post(postTagsController.save)
   .put(postTagsController.update)
 
 postTagsRouter

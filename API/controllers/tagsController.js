@@ -1,4 +1,4 @@
-const tagsDB = require("../../models/UserModels/tagsDB")
+const tagsDB = require("../models/tagsDB")
 
 module.exports = {
   index(req, res, next) {

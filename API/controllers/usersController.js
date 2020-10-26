@@ -1,4 +1,4 @@
-const usersDB = require("../../models/UserModels/usersDB")
+const usersDB = require("../models/usersDB")
 
 module.exports = {
   index(req, res, next) {

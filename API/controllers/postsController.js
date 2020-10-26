@@ -1,4 +1,4 @@
-const postsDB = require("../../models/UserModels/postsDB")
+const postsDB = require("../models/postsDB")
 
 module.exports = {
   index(req, res, next) {
