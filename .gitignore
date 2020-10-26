@@ -53,7 +53,7 @@ node_modules/
 .vscode-test
 
 #general
-.dbm
+*.dbm
 
 ### react ###
 .DS_*
