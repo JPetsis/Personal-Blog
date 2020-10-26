@@ -22,13 +22,13 @@ module.exports = {
   create(req, res, next) {
     postsDB
       .save(req.body)
-      .then((post) => res.json({ message: "Adding Posts", data: post }))
+      .then((post) => res.json({ message: "Adding Post", data: post }))
       .catch((err) => next(err))
   },
   update(req, res, next) {
     postsDB
       .update(req.body)
-      .then((post) => res.json({ message: "Updating Posts", data: post }))
+      .then((post) => res.json({ message: "Updating Post", data: post }))
       .catch((err) => next(err))
   },
   delete(req, res, next) {

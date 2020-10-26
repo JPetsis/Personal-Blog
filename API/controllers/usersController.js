@@ -22,13 +22,13 @@ module.exports = {
   create(req, res, next) {
     usersDB
       .save(req.body)
-      .then((user) => res.json({ message: "Adding Users", data: user }))
+      .then((user) => res.json({ message: "Adding User", data: user }))
       .catch((err) => next(err))
   },
   update(req, res, next) {
     usersDB
       .update(req.body)
-      .then((user) => res.json({ message: "Updating Users", data: user }))
+      .then((user) => res.json({ message: "Updating User", data: user }))
       .catch((err) => next(err))
   },
   delete(req, res, next) {

@@ -16,6 +16,7 @@ app.use("/users", require("./routes/userRoutes"))
 app.use("/posts", require("./routes/postRoutes"))
 app.use("/tags", require("./routes/tagRoutes"))
 app.use("/postTags", require("./routes/postTagRoutes"))
+app.use("/posts/comments", require("./routes/postCommentRoutes"))
 
 /* Default Routes */
 app.use("/", (req, res) => res.json({ message: "Blog API" }))

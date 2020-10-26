@@ -13,6 +13,6 @@ postTagsRouter
   .get(postTagsController.getOne)
   .delete(postTagsController.delete)
 
-postTagsRouter.route("/post_tag/:id_posts").get(postTagsController.getPostById)
+postTagsRouter.route("/post_tag/post/:id_posts").get(postTagsController.getPostById)
 
 module.exports = postTagsRouter

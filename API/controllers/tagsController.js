@@ -22,13 +22,13 @@ module.exports = {
   create(req, res, next) {
     tagsDB
       .save(req.body)
-      .then((tag) => res.json({ message: "Adding Tags", data: tag }))
+      .then((tag) => res.json({ message: "Adding Tag", data: tag }))
       .catch((err) => next(err))
   },
   update(req, res, next) {
     tagsDB
       .update(req.body)
-      .then((tag) => res.json({ message: "Updating Tags", data: tag }))
+      .then((tag) => res.json({ message: "Updating Tag", data: tag }))
       .catch((err) => next(err))
   },
   delete(req, res, next) {

@@ -1,4 +1,3 @@
-const dbConfig = require("../config/dbConfig")
 const postTagsDb = require("../models/postTagsDB")
 const pgp = require("pg-promise")()
 const QRE = pgp.errors.QueryResultError
@@ -25,7 +24,7 @@ module.exports = {
   },
   getPostById(req, res, next) {
     postTagsDb
-      .findByPostId(req.params.id_posts)
+      .findPostById(req.params.id_posts)
       .then((postTags) => res.json({ data: postTags }))
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData) return res.json({ data: {} })
