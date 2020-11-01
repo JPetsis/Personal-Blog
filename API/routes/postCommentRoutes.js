@@ -9,10 +9,10 @@ postCommentsRouter
   .put(postCommentsController.update)
 
 postCommentsRouter
-  .route("/comment/:id")
+  .route("/id/:id")
   .get(postCommentsController.getOne)
   .delete(postCommentsController.delete)
 
-postCommentsRouter.route("/user/:id_users").get(postCommentsController.getUserById)
+postCommentsRouter.route("/user/id/:id_users").get(postCommentsController.getUserById)
 
 module.exports = postCommentsRouter
