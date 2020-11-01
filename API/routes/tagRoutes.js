@@ -8,8 +8,8 @@ tagsRouter
   .post(tagsController.create)
   .put(tagsController.update)
 
-tagsRouter.route("/tag/:id").get(tagsController.getOne).delete(tagsController.delete)
+tagsRouter.route("/id/:id").get(tagsController.getOne).delete(tagsController.delete)
 
-tagsRouter.route("/tag/:name").get(tagsController.getByName)
+tagsRouter.route("/name/:name").get(tagsController.getByName)
 
 module.exports = tagsRouter

@@ -9,10 +9,10 @@ postTagsRouter
   .put(postTagsController.update)
 
 postTagsRouter
-  .route("/post_tag/:id")
+  .route("/id/:id")
   .get(postTagsController.getOne)
   .delete(postTagsController.delete)
 
-postTagsRouter.route("/post_tag/post/:id_posts").get(postTagsController.getPostById)
+postTagsRouter.route("/post/id/:id_posts").get(postTagsController.getPostById)
 
 module.exports = postTagsRouter
