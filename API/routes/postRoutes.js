@@ -8,8 +8,8 @@ postsRouter
   .post(postsController.create)
   .put(postsController.update)
 
-postsRouter.route("/post/:id").get(postsController.getOne).delete(postsController.delete)
+postsRouter.route("/id/:id").get(postsController.getOne).delete(postsController.delete)
 
-postsRouter.route("/post/:title").get(postsController.getByTitle)
+postsRouter.route("/title/:title").get(postsController.getByTitle)
 
 module.exports = postsRouter

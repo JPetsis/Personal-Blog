@@ -8,8 +8,8 @@ usersRouter
   .post(usersController.create)
   .put(usersController.update)
 
-usersRouter.route("/user/:id").get(usersController.getOne).delete(usersController.delete)
+usersRouter.route("/id/:id").get(usersController.getOne).delete(usersController.delete)
 
-usersRouter.route("/user/:username").get(usersController.getByUsername)
+usersRouter.route("/username/:username").get(usersController.getByUsername)
 
 module.exports = usersRouter
