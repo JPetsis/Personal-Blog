@@ -1,4 +1,8 @@
 const postsDB = require("../models/postsDB")
+const userViewsDb = require("../models/userViewsDB")
+const pgp = require("pg-promise")()
+const QRE = pgp.errors.QueryResultError
+const qrec = pgp.errors.queryResultErrorCode
 
 module.exports = {
   index(req, res, next) {
@@ -10,8 +14,26 @@ module.exports = {
   getOne(req, res, next) {
     postsDB
       .findById(req.params.id)
-      .then((post) => res.json({ message: "Getting Post", data: post }))
-      .catch((err) => next(err))
+      .then((post) => getPostViews(post))
+      .catch((err) => {
+        if (err instanceof QRE && err.code === qrec.noData) return res.json({ data: {} })
+        else next(err)
+      })
+
+    function getPostViews(post) {
+      userViewsDB
+        .findAmountByPostId(req.params.id)
+        .then((userViews) => sendResponse(post, userViews))
+        .catch((err) => {
+          if (err instanceof QRE && err.code === qrec.noData) return sendResponse(post, 0)
+          else next(err)
+        })
+
+      function sendResponse(post, viewAmount) {
+        post.viewAmount = viewAmount
+        res.json({ data: post })
+      }
+    }
   },
   getByTitle(req, res, next) {
     postsDB

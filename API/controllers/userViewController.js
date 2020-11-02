@@ -31,4 +31,20 @@ module.exports = {
         else next(err)
       })
   },
+  save(req, res, next) {
+    userViewsDB
+      .findByUserIdAndPostId({ post_id: req.body.post_id, user_id: req.body.user_id })
+      .then(() => res.sendStatus(200))
+      .catch((err) => {
+        if (err instanceof QRE && err.code === qrec.noData) return saveNewPostView()
+        else next(err)
+      })
+
+    function saveNewPostView() {
+      userViewsDB
+        .save(req.body)
+        .then((postView) => res.json({ data: postView }))
+        .catch((err) => next(err))
+    }
+  },
 }
