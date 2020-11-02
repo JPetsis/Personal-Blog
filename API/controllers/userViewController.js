@@ -33,7 +33,7 @@ module.exports = {
   },
   save(req, res, next) {
     userViewsDB
-      .findByUserIdAndPostId({ post_id: req.body.post_id, user_id: req.body.user_id })
+      .findByUserIdAndPostId({ id_posts: req.body.id_posts, id_users: req.body.id_users })
       .then(() => res.sendStatus(200))
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData) return saveNewPostView()
