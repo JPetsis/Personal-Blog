@@ -22,9 +22,9 @@ module.exports = {
         else next(err)
       })
   },
-  getPostById(req, res, next) {
+  getByPostId(req, res, next) {
     postTagsDb
-      .findPostById(req.params.id_posts)
+      .findByPostId(req.params.id_posts)
       .then((postTags) => res.json({ data: postTags }))
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData) return res.json({ data: {} })
