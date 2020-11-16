@@ -12,8 +12,8 @@ module.exports = {
   },
   save(user) {
     return db.one(
-      `INSERT INTO users (username, password, created_at) 
-      VALUES ($/username/, $/password/, $/created_at/)
+      `INSERT INTO users (username, password, email) 
+      VALUES ($/username/, $/password/, $/email/)
       RETURNING *`,
       user
     )
@@ -24,8 +24,7 @@ module.exports = {
       SET
       username = $/username/,
       password = $/password/,
-      updated_at = $/updated_at/
-      WHERE id = $/id/
+      WHERE id = /$id/
       RETURNING *`,
       user
     )

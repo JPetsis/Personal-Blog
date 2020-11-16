@@ -8,11 +8,8 @@ postTagsRouter
   .post(postTagsController.save)
   .put(postTagsController.update)
 
-postTagsRouter
-  .route("/id/:id")
-  .get(postTagsController.getOne)
-  .delete(postTagsController.delete)
+postTagsRouter.route("/id/:id").get(postTagsController.getOne).delete(postTagsController.delete)
 
-postTagsRouter.route("/post/id/:id_posts").get(postTagsController.getPostById)
+postTagsRouter.route("/post/id/:id_posts").get(postTagsController.getByPostId)
 
 module.exports = postTagsRouter
