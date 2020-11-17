@@ -23,8 +23,8 @@ module.exports = {
       `UPDATE users
       SET
       username = $/username/,
-      password = $/password/,
-      WHERE id = /$id/
+      password = $/password/
+      WHERE id = $/id/
       RETURNING *`,
       user
     )

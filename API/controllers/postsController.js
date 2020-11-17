@@ -9,7 +9,10 @@ module.exports = {
     postsDB
       .findAll()
       .then((posts) => res.json({ message: "Getting Posts", data: posts }))
-      .catch((err) => next(err))
+      .catch((err) => {
+        if (err instanceof QRE && err.code === qrec.noData) return res.json({ data: [] })
+        else next(err)
+      })
   },
   getOne(req, res, next) {
     postsDB
@@ -39,7 +42,10 @@ module.exports = {
     postsDB
       .findByTitle(req.params.title)
       .then((post) => res.json({ message: "Getting post by title", data: post }))
-      .catch((err) => next(err))
+      .catch((err) => {
+        if (err instanceof QRE && err.code === qrec.noData) return res.json({ data: {} })
+        else next(err)
+      })
   },
   create(req, res, next) {
     postsDB
